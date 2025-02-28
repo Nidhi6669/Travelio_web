@@ -1,0 +1,211 @@
+* {
+  margin: 0px;
+  padding: 2px;
+  font-family: "Poppins", system-ui;
+}
+body {
+  background-color: rgb(200, 223, 250);
+}
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.custom {
+  background-color: #4a7ae2 !important;
+}
+.nav-item {
+  margin-right: 2rem;
+}
+.nav-link {
+  color: ivory !important;
+}
+.navbar-brand {
+  color: ivory !important;
+}
+.align-top {
+  border-radius: 50% !important;
+}
+.dropdown-menu {
+  background-color: white;
+}
+
+.jumbotron {
+  background-image: url(./images/bg-img.jpg);
+  opacity: 1;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #7b66ff;
+  border-radius: 0px;
+
+}
+#changeText:after {
+  content: "";
+  animation-name: changetextanim;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  color: white;
+}
+
+#rating .card {
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#rating img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+#rating i {
+  color: orange;
+}
+#rating h1,
+#product #heading,
+#about #heading {
+  text-align: center;
+  font-family: "Poppins", system-ui;
+}
+#rating hr,
+#product hr,
+#about hr {
+  /* width: 30%; */
+  height: 2px;
+  color: #7b66ff;
+  align-items: center;
+}
+#rating h1 span,
+#product h1 span,
+#about h1 span {
+  color: #4a7ae2;
+}
+#hero #changeText:after {
+  content: "";
+  animation-name: changetextanim;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+.productFooter h4 {
+  float: left;
+}
+.productFooter img {
+  float: right;
+}
+#about {
+  text-align: justify;
+  line-height: 30px;
+}
+.footer {
+  background-color: #4a7ae2;
+  padding: 30px 0;
+  color: white;
+  padding-left: 12px;
+}
+.footer a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+/*  */
+.card {
+  background-color: rgb(200, 223, 250);
+  border: none;
+}
+.card .btn:hover {
+  background-color: rgb(174, 171, 171);
+  color: black;
+}
+.cardImg:hover {
+  background-color: rgb(253, 253, 229);
+  color: black;
+  transform: scale(1.05);
+}
+.productFooter {
+  margin-top: 0%;
+  line-height: 10px;
+}
+.cardImg {
+  border-radius: 10px !important;
+}
+.card p {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.star {
+  color: orange;
+}
+
+.col-md-6 img {
+  border-radius: 30px;
+}
+.row {
+  display: flex;
+  align-items: center; /* Center the items vertically */
+}
+.col-md-6 {
+  text-align: center; /* Center the image horizontally */
+}
+#gallery img {
+  border-radius: 10px;
+  /* transition: transform 0.3s ease; */
+}
+
+.social-icons {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 8px; /* Adjust the spacing here */
+}
+
+.social-icons li {
+  margin: 0;
+}
+
+.social-icons li a {
+  text-decoration: none;
+  color: inherit;
+}
+#overlay {
+  width: 40px;
+  position: absolute;
+  top: 2px;
+  margin-left: -25px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#overlay i {
+  width: 40px;
+  background-color: rgb(14, 150, 224);
+  color: white;
+  margin-bottom: 5px;
+}
+#product .card:hover #overlay {
+  opacity: 1;
+}
+.aboutImg{
+    opacity: 0.5;
+}
+/*  */
+@keyframes changetextanim {
+  12% {
+    content: "Flights";
+  }
+  25% {
+    content: "Hotels";
+  }
+  50% {
+    content: "Cabs";
+  }
+  75% {
+    content: "Holiday Packages";
+  }
+  100% {
+    content: "Travel Insurance";
+  }
+}

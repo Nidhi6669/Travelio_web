@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"
+      integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
+      integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <title>Travelio</title>
+  </head>
+  <body>
+    <div>
+      <!-- Nabar -->
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary custom">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><i class="bi bi-trello">Travelio</i></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Cabs</a></li>
+                  <li><a class="dropdown-item" href="#">Buses</a></li>
+                  <li><a class="dropdown-item" href="#">Trains</a></li>
+                  <li><a class="dropdown-item" href="#">Hotels</a></li>
+                  <li><a class="dropdown-item" href="#">Flights</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Holiday Packages</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Homestays & Villas</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Travel Insurance</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <button
+                class="btn btn-light"
+                data-bs-target="#registermodal"
+                data-bs-toggle="modal"
+              >
+                Register
+              </button>
+              <button
+                class="btn btn-light"
+                data-bs-target="#loginmodal"
+                data-bs-toggle="modal"
+              >
+                <i class="bi bi-lock"></i>Login
+              </button>
+            </span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Jumbotron -->
+
+      <div class="jumbotron " id="hero">
+        <div class=" row justify-content-center ">
+          <div class="col-md-6 ">
+            <h1 class="display-4">Special Discount !</h1>
+            <h2 class="service">Services:- <span id="changeText"></span></h2>
+            <p class="lead">
+              Escape to the epitome of luxury in our handpicked ultra-premium
+              stays packed with signature services.
+            </p>
+            <hr class="my-4" />
+            <button class="btn btn-light">
+              <i class="bi bi-cart"></i>Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img
+              src="./images/form_img.png"
+              alt="Brand or Company Image"
+              class="img-fluid formimg"
+            />
+          </div>
+          <div class="col-md-6">
+            <h2>Booking <span style="color: #4a7ae2">Form</span></h2>
+            <hr />
+            <form onsubmit="return validateForm();">
+              <div class="mb-3">
+                <label for="whereTo" class="form-label">Destination :</label>
+                <select class="form-select" id="whereTo" name="whereTo">
+                  <option value="option1">Select</option>
+                  <option value="option2">India</option>
+                  <option value="option3">Russia</option>
+                  <option value="option4">Dubai</option>
+                  <option value="option5">London</option>
+                  <option value="option6">Maldives</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="howManyPeople" class="form-label"
+                  >Passengers :</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="howManyPeople"
+                  name="howManyPeople"
+                  min="1"
+                  placeholder="Number of Passengers"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startDate" class="form-label">Departure :</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="startDate"
+                  name="startDate"
+                  min="<?php echo date('Y-m-d'); ?>"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endDate" class="form-label">Arrival :</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="endDate"
+                  name="endDate"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label"
+                  >Description :</label
+                >
+                <textarea
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  rows="5"
+                  minlength="50"
+                  maxlength="500"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="bookNowButton">
+                Book Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products -->
+
+      <div class="container mt-5" id="product">
+        <h1 id="heading">Explore <span>Wonders</span></h1>
+        <hr />
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-1.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Paris</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $97.5 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-2.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Dubai</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $78.4 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images//cards/img-3.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>India</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $97.6 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-5.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Italy</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $78.9 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-6.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Russia</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $80.2 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-7.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Maldives</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $98.1 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-9.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>New York</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $78.9 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images/cards/img-4.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Japan</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $87.5 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <img
+                  src="/images//cards/img-8.jpg"
+                  alt=""
+                  class="img-fluid cardImg"
+                />
+                <p>Africa</p>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-fill"></i>
+                <i class="star bi bi-star-half"></i>
+
+                <div id="overlay">
+                  <i class="bi bi-cart3"></i>
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-search"></i>
+                </div>
+
+                <div class="productFooter mt-2">
+                  <p>Price - $93.0 <i class="bi bi-plus-circle"></i></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-2"
+                  id="bookNowButton"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+
+      <div class="container mt-5" id="product">
+        <h1 id="heading">Explore <span>Services</span></h1>
+        <hr />
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <i class="star bi bi-house-door-fill fs-1"></i>
+                <h5>Affordable Hotels</h5>
+                <p style="font-size: 17px">
+                  Book hotels that fit your budget with comfort and convenience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <i class="star bi bi-cup-fill fs-1"></i>
+                <h5>Food & Drinks</h5>
+                <p style="font-size: 17px">
+                  Enjoy local cuisines and beverages during your stay.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <i class="star bi bi-shield-check fs-1"></i>
+                <h5>Safety Guide</h5>
+                <p style="font-size: 17px">
+                  Your safety is our priority with 24/7 guide services.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <i class="star bi bi-people-fill fs-1"></i>
+                <h5>Group Tours</h5>
+                <p style="font-size: 17px">
+                  Join our guided group tours for an unforgettable experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <i class="star bi bi-card-checklist fs-1"></i>
+                <h5>Travel Insurance</h5>
+                <p style="font-size: 17px">
+                  Secure your travel plans with our comprehensive insurance
+                  options.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card cardImg">
+              <div class="card-body text-center">
+                <i class="star bi bi-airplane-engines fs-1"></i>
+                <h5>Flight Booking</h5>
+                <p style="font-size: 17px">
+                  We help you book the best flights at competitive rates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <!-- <div class="container mt-5 mb-5" id="gallery">
+    <h1 id="heading" >Our <span> Gallery</span> </h1>
+    <hr>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="./images/gallery/glImg1.jpg" class="d-block w-75 mx-auto" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Best Hotels</h3>
+            <p>Capture iconic city landmarks, skyline views, and bustling streets from popular destinations.</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="./images/gallery/glImg2.jpg" class="d-block w-75 mx-auto" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Best Flights</h3>
+            <p>Capture moments like families with kids looking out windows or couples eagerly awaiting takeoff, adding an emotional touch to the experience..</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./images/gallery/glImg3.jpg" class="d-block w-75 mx-auto" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Best Sights</h3>
+            <p>The scene is a timeless reflection of devotion, tradition, and serenity, capturing the heart and soul of India’s spiritual heritage.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div> -->
+
+        <!-- Slick -->
+        <div class="container mt-5" id="gallery">
+          <h1 id="heading">Our <span>Gallery</span></h1>
+          <hr />
+          <div class="responsive">
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg1.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Jaipur</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg2.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Udaipur</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg3.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Singapore</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg4.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Amlapura bali</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg5.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Japan</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg6.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Egypt</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg7.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Turkey</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg8.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Malaysia</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg9.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>China</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg10.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Goa</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg11.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Japan</p></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img
+                  src="./images/gallery/gimg12.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <figcaption align="center"><p>Bhutan</p></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- About -->
+
+        <div class="container mt-5 mb-5" id="about">
+          <h1 id="heading">Why <span> Travelio</span></h1>
+          <hr />
+          <div class="row">
+            <div class="col-md-6">
+              <img src="/images/aboutimg.jpg" class=" aboutImg img-fluid" alt="" />
+            </div>
+            <div class="col-md-6">
+              <p style="text-align: left">
+                Imagine completing bookings that typically require 2 hours of
+                effort in just 10 minutes. Introducing Travelio, the
+                revolutionary travel agent-friendly booking technology designed
+                to alleviate agents’ pain by saving valuable time. With
+                user-friendly tools and access to your favourite global travel
+                suppliers, Travelio revolutionises the way travel agents plan,
+                create, and book. Completing the end to end booking capability
+                is Travelio Shop, our e-commerce plug-in extension. Travelio
+                Shop allow’s any travel agency to have a genuine online
+                presence, open 24/7. Now you can make sales even while you
+                sleep!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="footer">
+        <div class="row">
+          <div class="col-md-4">
+            <h1><i class="bi bi-trello"></i>Travelio</h1>
+            <p>Travel agent friendly technology</p>
+            <div class="col-md-6">
+              <ul class="list-unstyled d-flex justify-content-start gap-5 mb-0">
+                <li>
+                  <a href="#" class="text-light"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="text-light"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="text-light"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-3">
+                <b> Quick Links</b>
+                <li>About </li>
+                <li>Pricing</li>
+                <li>Careers</li>
+              </div>
+              <div class="col-md-3">
+                <b> Legal</b>
+                <li>Cookies</li>
+                <li>Privacy Policy</li>
+                <li>Acceptable Use</li>
+                
+              </div>
+              <div class="col-md-3">
+                <b>Client Area</b>
+                <li>Log In</li>
+                <li>Helpful Docs</li>
+                <li>Admin Docs</li>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center mt-5 mb-0">
+          &copy; 2024 Travelio. All rights reserved.
+        </p>
+      </div>
+
+      <!-- Register Modal -->
+      <div
+        class="modal"
+        id="registermodal"
+        tabindex="-1"
+        aria-labelledby="registerModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Register Form</h3>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  class="form-control mb-2"
+                />
+                <p></p>
+                <input
+                  type="email"
+                  placeholder="Email ID"
+                  class="form-control mb-2"
+                  id="email"
+                />
+                <p id="emailtext"></p>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="form-control mb-2"
+                  id="password"
+                />
+                <p id="passtext"></p>
+                <input
+                  type="tel"
+                  placeholder="Mobile"
+                  class="form-control mb-2"
+                  id="mobile"
+                />
+                <p id="mobiletext"></p>
+                <div class="form-group">
+                  
+                  <input type="date" class="form-control" id="dob">
+                </div>
+                <p></p>
+                <div class="form-group ">
+    
+                  <select class="form-control" id="gender" >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>   
+              
+                </div>
+
+                <button type="button" class="btn btn-success mb-2">
+                  Register
+                </button>
+                <p>
+                  Already have an account?
+                  <a href="#" onclick="switchModal('login')">Log In</a>
+                </p>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Modal -->
+      <div
+        class="modal"
+        id="loginmodal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Login Form</h3>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <input
+                  type="email"
+                  placeholder="Email ID"
+                  class="form-control mb-2"
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="form-control mb-2"
+                />
+                <button type="button" class="btn btn-success">Login</button>
+                <p>
+                  Don't have an account?
+                  <a href="#" onclick="switchModal('register')">Sign Up</a>
+                </p>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.min.js"
+      integrity="sha512-BzvgYEoHXuphX+g7B/laemJGYFdrq4fTKEo+B3PurSxstMZtwu28FHkPKXu6dSBCzbUWqz/rMv755nUwhjQypw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+      integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
